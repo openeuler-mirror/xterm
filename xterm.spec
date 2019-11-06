@@ -1,6 +1,6 @@
 Name:		xterm
 Version:	334
-Release:        2
+Release:        3
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
 URL:		https://invisible-island.net/xterm
@@ -14,8 +14,8 @@ BuildRequires: 	gcc git pkgconfig ncurses-devel libutempter-devel
 BuildRequires: 	libXft-devel libXaw-devel libXext-devel desktop-file-utils
 BuildRequires: 	libxkbfile-devel xorg-x11-apps
 
-provides:	xterm-resize = 334-2
-Obsoletes:	xterm-resize < 334-2
+provides:	xterm-resize = %{version}-%{release}
+Obsoletes:	xterm-resize < %{version}-%{release}
 
 %bcond_with trace
 
@@ -34,8 +34,6 @@ The xterm-help package contains doc files for xterm.
 
 iconv -f iso8859-1 -t utf-8 < THANKS > TEMP
 touch -r THANKS TEMP; mv TEMP THANKS
-
-echo %{_datadir}/X11/app-defaults
 
 %build
 %configure --enable-meta-sends-esc --disable-backarrow-key --enable-256-color \
@@ -69,5 +67,11 @@ install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 %{_mandir}/man1/*
 
 %changelog
+* Mon Sep 30 2019 luhuaxin <luhuaxin@huawei.com> - 334-3
+- Type: enhancement
+- ID: NA
+- SUG: NA
+- DESC: package rebuild
+
 * Wed Aug 28 2019 luhuaxin <luhuaxin@huawei.com> - 334-2
 - Package init
