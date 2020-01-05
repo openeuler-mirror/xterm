@@ -1,14 +1,10 @@
 Name:		xterm
 Version:	334
-Release:        3
+Release:        4
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
-URL:		https://invisible-island.net/xterm
-Source0:	ftp://ftp.invisible-island.net/xterm/xterm-334.tgz
-Source1: 	ftp://ftp.invisible-island.net/xterm/16colors.txt
-Patch0: 	xterm-defaults.patch
-Patch1: 	xterm-desktop.patch
-Patch2: 	xterm-man-paths.patch
+URL:		http://invisible-island.net/xterm
+Source0:	http://invisible-island.net/xterm/xterm-334.tgz
 
 BuildRequires: 	gcc git pkgconfig ncurses-devel libutempter-devel
 BuildRequires: 	libXft-devel libXaw-devel libXext-devel desktop-file-utils
@@ -47,13 +43,12 @@ touch -r THANKS TEMP; mv TEMP THANKS
 %install
 %make_install
 
-cp -fp %{SOURCE1} 16colors.txt
 desktop-file-install --dir=%{buildroot}/%{_datadir}/applications xterm.desktop
 mkdir -p %{buildroot}/%{_datadir}/appdata
 install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 
 %files
-%doc 16colors.txt THANKS
+%doc THANKS
 %{_bindir}/*xterm
 %{_datadir}/X11/app-defaults/*
 %{_datadir}/appdata/xterm.appdata.xml
@@ -67,6 +62,12 @@ install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 %{_mandir}/man1/*
 
 %changelog
+* Thu Jan 3 2020 openEuler Buildteam <buildteam@openeuler.org> - 334-4
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:optimization the spec
+
 * Mon Sep 30 2019 luhuaxin <luhuaxin@huawei.com> - 334-3
 - Type: enhancement
 - ID: NA
