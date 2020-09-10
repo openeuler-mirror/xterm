@@ -4,7 +4,7 @@ Release:        5
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
 URL:		http://invisible-island.net/xterm
-Source0:	http://invisible-island.net/archive/xterm/xterm-334.tgz
+Source0:	http://invisible-island.net/archives/xterm/xterm-334.tgz
 
 BuildRequires: 	gcc git pkgconfig ncurses-devel libutempter-devel
 BuildRequires: 	libXft-devel libXaw-devel libXext-devel desktop-file-utils
