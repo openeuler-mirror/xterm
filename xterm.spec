@@ -1,10 +1,10 @@
 Name:		xterm
 Version:	334
-Release:        5
+Release:        6
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
 URL:		http://invisible-island.net/xterm
-Source0:	http://invisible-island.net/archives/xterm/xterm-334.tgz
+Source0:	https://invisible-mirror.net/archives/xterm/xterm-334.tgz
 
 BuildRequires: 	gcc git pkgconfig ncurses-devel libutempter-devel
 BuildRequires: 	libXft-devel libXaw-devel libXext-devel desktop-file-utils
@@ -62,6 +62,12 @@ install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 %{_mandir}/man1/*
 
 %changelog
+* Thu Sep 29 2020 hanhui <hanhui15@huawei.com> - 334-6
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:modify source url
+
 * Thu Sep 10 2020 hanhui <hanhui15@huawei.com> - 334-5
 - Type:bugfix
 - ID:NA
