@@ -1,10 +1,12 @@
 Name:		xterm
 Version:	363
-Release:        1
+Release:        2
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
 URL:		http://invisible-island.net/xterm
 Source0:	https://invisible-mirror.net/archives/xterm/xterm-%{version}.tgz
+
+Patch6000:      backport-CVE-2021-27135.patch
 
 BuildRequires: 	gcc git pkgconfig ncurses-devel libutempter-devel
 BuildRequires: 	libXft-devel libXaw-devel libXext-devel desktop-file-utils
@@ -62,6 +64,9 @@ install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 %{_mandir}/man1/*
 
 %changelog
+* Wed Mar 03 2021 jinzhimin <jinzhimin2@huawei.com> - 363-2
+- fix CVE-2021-27135
+
 * Thu Jan 28 2021 jinzhimin <jinzhimin2@huawei.com> - 363-1
 - Upgrade to 363
 
