@@ -1,6 +1,6 @@
 Name:		xterm
 Version:	334
-Release:        7
+Release:        5
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
 URL:		http://invisible-island.net/xterm
@@ -64,20 +64,8 @@ install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 %{_mandir}/man1/*
 
 %changelog
-* Wed Mar 03 2021 jinzhimin <jinzhimin2@huawei.com> - 334-7
+* Wed Mar 03 2021 jinzhimin <jinzhimin2@huawei.com> - 334-5
 - fix CVE-2021-27135
-
-* Thu Sep 29 2020 hanhui <hanhui15@huawei.com> - 334-6
-- Type:bugfix
-- ID:NA
-- SUG:NA
-- DESC:modify source url
-
-* Thu Sep 10 2020 hanhui <hanhui15@huawei.com> - 334-5
-- Type:bugfix
-- ID:NA
-- SUG:NA
-- DESC:modify source url
 
 * Thu Jan 3 2020 openEuler Buildteam <buildteam@openeuler.org> - 334-4
 - Type:bugfix
