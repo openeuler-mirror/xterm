@@ -1,6 +1,6 @@
 Name:		xterm
 Version:	363
-Release:        2
+Release:        3
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
 URL:		http://invisible-island.net/xterm
@@ -8,7 +8,7 @@ Source0:	https://invisible-mirror.net/archives/xterm/xterm-%{version}.tgz
 
 Patch6000:      backport-CVE-2021-27135.patch
 
-BuildRequires: 	gcc git pkgconfig ncurses-devel libutempter-devel
+BuildRequires: 	gcc pkgconfig ncurses-devel libutempter-devel
 BuildRequires: 	libXft-devel libXaw-devel libXext-devel desktop-file-utils
 BuildRequires: 	libxkbfile-devel xorg-x11-apps
 
@@ -28,7 +28,7 @@ Summary: 	Doc files for xterm
 The xterm-help package contains doc files for xterm.
 
 %prep
-%autosetup -n xterm-363 -p1 -S git
+%autosetup -n xterm-363 -p1
 
 iconv -f iso8859-1 -t utf-8 < THANKS > TEMP
 touch -r THANKS TEMP; mv TEMP THANKS
@@ -64,6 +64,9 @@ install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 %{_mandir}/man1/*
 
 %changelog
+* Fri Jul 30 2021 chenyanpanHW <chenyanpan@huawei.com> - 363-3
+- DESC: delete -S git from %autosetup, and delete BuildRequires git
+
 * Wed Mar 03 2021 jinzhimin <jinzhimin2@huawei.com> - 363-2
 - fix CVE-2021-27135
 
