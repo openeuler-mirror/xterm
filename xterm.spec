@@ -1,13 +1,10 @@
 Name:		xterm
-Version:	363
-Release:        4
+Version:	372
+Release:        1
 Summary:	It is a terminal emulator for the X Window System
 License:	MIT
 URL:		http://invisible-island.net/xterm
 Source0:	https://invisible-mirror.net/archives/xterm/xterm-%{version}.tgz
-
-Patch6000:      backport-CVE-2021-27135.patch
-Patch6001:      backport-CVE-2022-24130.patch
 
 BuildRequires: 	gcc pkgconfig ncurses-devel libutempter-devel
 BuildRequires: 	libXft-devel libXaw-devel libXext-devel desktop-file-utils
@@ -29,7 +26,7 @@ Summary: 	Doc files for xterm
 The xterm-help package contains doc files for xterm.
 
 %prep
-%autosetup -n xterm-363 -p1
+%autosetup -n xterm-%{version} -p1
 
 iconv -f iso8859-1 -t utf-8 < THANKS > TEMP
 touch -r THANKS TEMP; mv TEMP THANKS
@@ -65,6 +62,9 @@ install -m 644 -p xterm.appdata.xml %{buildroot}/%{_datadir}/appdata
 %{_mandir}/man1/*
 
 %changelog
+* Sun Apr 17 2022 YukariChiba <i@0x7f.cc> - 372-1
+- Upgrade version to 372
+
 * Tue Feb 22 2022 xingxing <xingxing9@h-partners.com> - 363-4
 - fix CVE-2022-24130
 
